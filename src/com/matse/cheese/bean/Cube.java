@@ -36,13 +36,7 @@ public class Cube extends Body implements BodyInterface{
 	
 	public void initCuboid() {
 		
-		for (int i = 0 ; i < width ; i++) {
-			for (int j = 0 ; j < depth ; j++) {
-				for (int k = 0 ; k < height ; k++) {
-					cube[i][j][k] = new Segment(true, false, i, j, k);
-				}
-			}
-		}
+		
 	}
 
 
