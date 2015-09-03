@@ -20,14 +20,14 @@ public class Segment implements SegmentInterface{
 	private final int x, y, z;
 	
 	public Segment() {
-		this(true);
+		this(SegmentType.CHEESE);
 	}
 	
-	public Segment(boolean type) {
+	public Segment(SegmentType type) {
 		this(type, false);
 	}
 	
-	public Segment(boolean type, boolean visited) {
+	public Segment(SegmentType type, boolean visited) {
 		this(type, visited, 0, 0, 0);
 	}
 	

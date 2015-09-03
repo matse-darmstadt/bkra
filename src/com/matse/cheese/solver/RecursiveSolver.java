@@ -34,15 +34,9 @@ public class RecursiveSolver extends AbstractSolver {
 	}
 
 	@Override
-	public List<Segment> searchPath() {
+	public boolean solve(int amountOfWater, boolean allPaths) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getPathLength() {
-		// TODO Auto-generated method stub
-		return 0;
+		return false;
 	}
 
 	@Override
@@ -51,11 +45,6 @@ public class RecursiveSolver extends AbstractSolver {
 		return null;
 	}
 
-	@Override
-	public boolean solve(int amountOfWater) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	
 }

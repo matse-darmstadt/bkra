@@ -1,7 +1,5 @@
 package com.matse.cheese.bean;
 
-import com.matse.cheese.bean.Segment.SegmentType;
-
 public interface SegmentInterface {
 
 	/**

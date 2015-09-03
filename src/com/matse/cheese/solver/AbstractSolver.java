@@ -108,7 +108,7 @@ public abstract class AbstractSolver {
 		findAllPaths = flag;
 	}
 	abstract public List<Segment> searchPath(int amountOfWater);
-	
+
 	
 		
 	
