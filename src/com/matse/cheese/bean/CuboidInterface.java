@@ -14,4 +14,6 @@ public interface CuboidInterface {
 	 * free to use in the next iteration of the path solving algorithm.
 	 */
 	public List<Segment> getFreeNeighbours(Segment segment);
+	
+	
 }

@@ -1,12 +1,14 @@
 package com.matse.cheese.bean;
 
+import com.matse.cheese.bean.Segment.SegmentType;
+
 public interface SegmentInterface {
 
 	/**
 	 * Returns the type of the segment
 	 * TRUE if cheese, FALSE if air
 	 */
-	public boolean getType();
+	public SegmentType getType();
 	
 	/**
 	 * Sets the type of the segment

@@ -5,8 +5,8 @@ import java.util.List;
 import com.matse.cheese.bean.Segment;
 
 /**
- * This class solves the problem of deciding if there is a path of air segments through 
- * a given cube by using a recursive algorithm.
+ * This class solves the water flow problem in a three dimensional cube by using a recursive algorithm. 
+ * 
  * The idea of the algorithm is as follows: <br />
  * <code>
  * Start with a given valid segment. <br />

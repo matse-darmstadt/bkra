@@ -1,6 +1,5 @@
 package com.matse.cheese.bean;
 
-import javafx.geometry.Point3D;
 
 @SuppressWarnings("unused")
 public class Segment implements SegmentInterface{
@@ -10,7 +9,7 @@ public class Segment implements SegmentInterface{
 	 * @TODO In future there should be different types (SegmentType)
 	 * to 
 	 */
-	private boolean type; // false = air; true = cheese;
+	private SegmentType type; // false = air; true = cheese;
 	/**
 	 * Visited state set by the AbstractSolver
 	 */
@@ -32,16 +31,14 @@ public class Segment implements SegmentInterface{
 		this(type, visited, 0, 0, 0);
 	}
 	
-	public Segment(boolean type, boolean visited, int x, int y, int z) {
+	public Segment(SegmentType type, boolean visited, int x, int y, int z) {
 		this.type = type;
 		this.visited = visited;
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
-	
-	
-	
+
 	
 	
 }
