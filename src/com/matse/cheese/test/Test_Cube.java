@@ -77,7 +77,8 @@ public class Test_Cube {
 		List<Segment> weg = solver.searchPath(-1);
 		assertEquals("Die Länge stimmt nicht überein", erwarteterWeg.size(), weg.size());
 		assertTrue("Falscher Weg", compareList(erwarteterWeg, weg));
-
+		
+		assertTrue("Kein Strat- oder Endsegment gefunden", solver.isSolvable());
 	}
 
 }
