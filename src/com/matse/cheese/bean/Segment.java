@@ -46,7 +46,7 @@ public class Segment implements SegmentInterface{
 	}
 
 	@Override
-	public void setType(boolean type) {
+	public void setType(SegmentType type) {
 		// TODO Auto-generated method stub
 		
 	}
