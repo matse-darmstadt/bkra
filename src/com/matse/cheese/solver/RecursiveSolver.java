@@ -2,6 +2,7 @@ package com.matse.cheese.solver;
 
 import java.util.List;
 
+import com.matse.cheese.bean.Cube;
 import com.matse.cheese.bean.Segment;
 
 /**
@@ -21,6 +22,11 @@ import com.matse.cheese.bean.Segment;
  */
 public class RecursiveSolver extends AbstractSolver {
 
+	public RecursiveSolver(Cube cube) {
+		super(cube);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public boolean isSolvable() {
 		// TODO Auto-generated method stub
@@ -34,15 +40,9 @@ public class RecursiveSolver extends AbstractSolver {
 	}
 
 	@Override
-	public List<Segment> searchPath() {
+	public boolean solve(int amountOfWater, boolean allPaths) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getPathLength() {
-		// TODO Auto-generated method stub
-		return 0;
+		return false;
 	}
 
 	@Override
@@ -51,11 +51,6 @@ public class RecursiveSolver extends AbstractSolver {
 		return null;
 	}
 
-	@Override
-	public boolean solve(int amountOfWater) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	
 }

@@ -19,10 +19,11 @@ import java.util.List;
  * @author bkra
  *
  */
-public class Cube extends Body implements BodyInterface{
+public class Cube implements CubeInterface{
 	
 	public Segment[][][] cube;
 	public boolean[][][] visited;
+	public int dimensions;
 	public int width, depth, height; // x, y, z
 	
 	public Cube() {
