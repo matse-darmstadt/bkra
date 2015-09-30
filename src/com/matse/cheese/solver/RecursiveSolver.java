@@ -2,6 +2,7 @@ package com.matse.cheese.solver;
 
 import java.util.List;
 
+import com.matse.cheese.bean.Cube;
 import com.matse.cheese.bean.Segment;
 
 /**
@@ -20,6 +21,11 @@ import com.matse.cheese.bean.Segment;
  *
  */
 public class RecursiveSolver extends AbstractSolver {
+
+	public RecursiveSolver(Cube cube) {
+		super(cube);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public boolean isSolvable() {

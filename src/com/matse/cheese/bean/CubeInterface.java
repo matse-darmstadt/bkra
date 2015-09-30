@@ -12,7 +12,7 @@ import java.util.List;
  * @version 1.0
  *
  */
-public interface BodyInterface {
+public interface CubeInterface {
 	
 	/**
 	 * Returns a list of all neighbours to a given segment.

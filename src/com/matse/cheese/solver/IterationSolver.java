@@ -2,9 +2,15 @@ package com.matse.cheese.solver;
 
 import java.util.List;
 
+import com.matse.cheese.bean.Cube;
 import com.matse.cheese.bean.Segment;
 
 public class IterationSolver extends AbstractSolver {
+
+	public IterationSolver(Cube cube) {
+		super(cube);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public boolean isSolvable() {

@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import com.matse.cheese.bean.Body;
+import com.matse.cheese.bean.Cube;
 import com.matse.cheese.bean.Segment;
 
 /**
@@ -23,6 +23,11 @@ import com.matse.cheese.bean.Segment;
 @SuppressWarnings("unused")
 public abstract class AbstractSolver {
 
+	
+	public AbstractSolver(Cube cube) {
+		this.cube = cube;
+	}
+	
 	/**
 	 * Represents the shortest path of segments solved by the implemented algorithm.
 	 */
@@ -43,7 +48,7 @@ public abstract class AbstractSolver {
 	 */
 	private boolean usePhysics;
 	
-	private Body cube;
+	private Cube cube;
 	/**
 	 * Returns the check of the necessary condition which is
 	 * a mandatory segment of air on the lower side (z-axis) of the cube
