@@ -37,14 +37,26 @@ public class Cube implements CubeInterface{
 	
 	public void initCuboid() {
 		
-		
 	}
 
 
+	/**
+	 * Constructor for creating a cube with the same size in each dimension
+	 * @param size
+	 */
 	public Cube(int size) {
-//		cube = super(dimension);
+		cube = new Segment[size][size][size]; 
 		
 	}
+	
+	/**
+	 * Constructor to use a given cube of Segments
+	 * @param inputCube
+	 */
+	public Cube(Segment[][][] inputCube) {
+		this.cube = inputCube;
+	}
+	
 	@Override
 	public List<Segment> getNeighbours(Segment segment) {
 		// TODO Auto-generated method stub
