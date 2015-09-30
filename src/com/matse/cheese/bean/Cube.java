@@ -33,8 +33,7 @@ public class Cube implements CubeInterface{
 		cube = new Segment[width][depth][height];
 		initCuboid();
 	}
-	
-	
+
 	public void initCuboid() {
 		
 	}
@@ -46,7 +45,6 @@ public class Cube implements CubeInterface{
 	 */
 	public Cube(int size) {
 		cube = new Segment[size][size][size]; 
-		
 	}
 	
 	/**

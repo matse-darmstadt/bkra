@@ -4,15 +4,14 @@ public interface SegmentInterface {
 
 	/**
 	 * Returns the type of the segment
-	 * TRUE if cheese, FALSE if air
 	 */
 	public SegmentType getType();
 	
 	/**
 	 * Sets the type of the segment
-	 * @param type TRUE if it's supposed to be cheese, FALSE otherwise
+	 * @param type of the segment
 	 */
-	public void setType(boolean type);
+	public void setType(SegmentType type);
 	
 	/**
 	 * Gets the visited state
