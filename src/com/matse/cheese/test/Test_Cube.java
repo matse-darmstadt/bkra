@@ -52,8 +52,10 @@ public class Test_Cube {
 
 					segments[x][y][z].setType(SegmentType.CHEESE);
 					segments[0][0][2].setType(SegmentType.AIR);
-					assertEquals("Kein Endsegment gefunden", z == 2,
-							cube.isValidBottomBoundarySegment(segments[x][y][2]));
+					assertEquals("Kein Endsegment gefunden", z == 2 && x == 0 && y == 0,
+							cube.isValidBottomBoundarySegment(segments[x][y][z]));
+					
+					segments[0][0][2].setType(SegmentType.CHEESE);
 				}
 		assertEquals("Mehr als 3 Nachbar gefunden", 3, cube.getNeighbours(segments[0][0][0]).size());
 		assertEquals("Valide Nachbar gefunden", 0, cube.getValidNeighbours(segments[0][0][2]).size());
