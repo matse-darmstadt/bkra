@@ -81,7 +81,8 @@ public abstract class AbstractSolver {
 	abstract public boolean solve(int amountOfWater, boolean allPaths);
 	
 	/**
-	 * Returns the path from a starting node to an exit.
+	 * Returns the found path from a starting node to an exit 
+	 * if searchPath() has been executed.
 	 */
 	public List<Segment> getPath() {
 		return path;
