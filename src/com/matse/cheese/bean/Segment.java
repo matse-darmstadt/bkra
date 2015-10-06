@@ -17,7 +17,7 @@ public class Segment implements SegmentInterface{
 	/**
 	 * Coordinates of a segment in a cube
 	 */
-	private final int x, y, z;
+	private int x, y, z;
 	
 	public Segment() {
 		this(SegmentType.CHEESE);
@@ -41,68 +41,59 @@ public class Segment implements SegmentInterface{
 
 	@Override
 	public SegmentType getType() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.type;
 	}
 
 	@Override
 	public void setType(SegmentType type) {
-		// TODO Auto-generated method stub
-		
+		this.type = type;
 	}
 
 	@Override
 	public boolean isVisited() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.visited;
 	}
 
 	@Override
 	public void setVisited(boolean visited) {
-		// TODO Auto-generated method stub
-		
+		this.visited = visited;		
 	}
 
 	@Override
 	public void setCoordinates(int x, int y, int z) {
-		// TODO Auto-generated method stub
-		
+		setX(x);
+		setY(y);
+		setZ(z);
 	}
 
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return x;
 	}
 
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.y;
 	}
 
 	@Override
 	public int getZ() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.z;
 	}
 
 	@Override
 	public void setX(int x) {
-		// TODO Auto-generated method stub
-		
+		this.x = x;
 	}
 
 	@Override
 	public void setY(int y) {
-		// TODO Auto-generated method stub
-		
+		this.y = y;
 	}
 
 	@Override
 	public void setZ(int z) {
-		// TODO Auto-generated method stub
-		
+		this.z = z;
 	}
 
 	

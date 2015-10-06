@@ -2,6 +2,8 @@ package com.matse.cheese.bean;
 
 import java.util.List;
 
+import javafx.geometry.Point3D;
+
 /**
  * This interface provides general methods to a body of {@link Segment}s.<br>
  * As of now a body is assumed to consist of cube-like elements for easier representation.
@@ -67,5 +69,15 @@ public interface CubeInterface {
 	 */
 	public boolean isValidStartSegment(Segment segment);
 	
+	
+	public Segment[][][] getCube();
+	public void setCube(Segment[][][] inputCube);
+	public boolean isInsideOfCube(Point3D coordinates);
+	public String toString();
+	public int getWidth();
+	public int getDepth();
+	public int getHeight();
+	public Segment getSegment(int x, int y, int z);
+	public boolean isVisited(Segment segment);
 	
 }

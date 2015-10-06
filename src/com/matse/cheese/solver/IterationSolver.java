@@ -13,28 +13,40 @@ public class IterationSolver extends AbstractSolver {
 	}
 
 	@Override
-	public boolean isSolvable() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean solve() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+//	@Override
+//	public boolean solve(int amountOfWater, boolean allPaths) {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
+//
+//	@Override
+//	public List<Segment> solveWithPath(int amountOfWater) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
 	@Override
-	public boolean solve(int amountOfWater, boolean allPaths) {
+	public boolean solve(Segment start) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public List<Segment> searchPath(int amountOfWater) {
+	protected boolean solveIt(Segment segment, List<Segment> path) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Segment> solveAndReturnPath() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.matse.cheese.bean.Cube;
 import com.matse.cheese.bean.Segment;
+import com.matse.cheese.bean.SegmentType;
 
 /**
  * This class solves the water flow problem in a three dimensional cube by using a recursive algorithm. 
@@ -22,35 +23,129 @@ import com.matse.cheese.bean.Segment;
  */
 public class RecursiveSolver extends AbstractSolver {
 
+	private boolean pathFound = false;
+	
 	public RecursiveSolver(Cube cube) {
 		super(cube);
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public boolean isSolvable() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
 	public boolean solve() {
-		// TODO Auto-generated method stub
-		return false;
+		List<Segment> startList = this.cube.getValidStartSegments();
+		pathFound = false;
+		this.runningTime = System.currentTimeMillis();
+		
+		for (Segment segment : startList) {
+			if (!pathFound)
+				pathFound = solve(segment);
+		}
+		
+		this.runningTime = System.currentTimeMillis() - this.runningTime;
+		
+		return !this.path.isEmpty();
 	}
+	
+	public boolean solve(Segment start) {
+		
+		Long solvingTime = System.currentTimeMillis();
+		
+		if (cube.isValidStartSegment(start))
+			solveIt(start, this.path);
+		
+		solvingTime = System.currentTimeMillis() - solvingTime;
+		this.timeToSolve.add(new Double(solvingTime));
+		return pathFound;
+	}
+	
+	protected boolean solveIt(Segment segment, List<Segment> currentPath) {
+		
+		currentPath.add(segment);
+		segment.setVisited(true);
+		
+		if (cube.isValidBottomBoundarySegment(segment)) {
+			pathFound = true;
+			return pathFound;
+		}
+		
+		List<Segment> neighbours = cube.getValidNeighbours(segment);
+			
+		for (Segment neighbour : neighbours) {
+			if (!pathFound) {
+				solveIt(neighbour, currentPath);
+			}
+		}
+		
+		return pathFound;
+	}
+
+//	@Override
+//	public boolean solve(int amountOfWater, boolean allPaths) {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
 
 	@Override
-	public boolean solve(int amountOfWater, boolean allPaths) {
-		// TODO Auto-generated method stub
-		return false;
+	public List<Segment> solveAndReturnPath() {
+		solve();
+		return this.path;
 	}
-
+	
 	@Override
-	public List<Segment> searchPath(int amountOfWater) {
-		// TODO Auto-generated method stub
-		return null;
+	public String toString() {
+		StringBuffer buffer = new StringBuffer();
+		
+		buffer.append("----------------------------------\n")
+			.append("The following cube has been tested:\n")
+			.append(this.cube.toString() + "\n")
+			.append("\n")
+			.append("Could it be solved: " + this.pathFound + "\n");
+		
+		buffer.append("The path is as follows: \n");
+		buffer.append("START --> ");
+		int counter = 0;
+		for (Segment segment : this.path) {
+			counter++;
+			buffer.append("(");
+			buffer.append(segment.getX() + ", ");
+			buffer.append(segment.getY() + ", ");
+			buffer.append(segment.getZ() + ") --> ");
+			if (counter % 6 == 0)
+				buffer.append("\n\t\t");
+		}
+		buffer.append("END\n");
+		buffer.append("The length of the path is: " + this.getPathLength() + "\n");
+		buffer.append("and was found in " + this.runningTime + " milliseconds\n");
+		buffer.append("\n");
+		buffer.append("Some more statistics (ms): \n");
+		for (String text : statistics.keySet()) {
+			buffer.append(text + ": " + statistics.get(text) + "\n");
+		}
+		
+		return buffer.toString();
 	}
-
+	
+	public static void main(String args[]) {
+		
+		int cubeSize = 3;
+		
+		Cube testCube = new Cube(cubeSize);
+		RecursiveSolver solver = new RecursiveSolver(testCube);
+		
+		int performanceRepetition = 1000;
+		solver.statistics.put("Repetition", new Double(performanceRepetition));
+		
+		for (int i = 0 ; i <= performanceRepetition ; i++) {
+			boolean solved = solver.solve();
+		}
+		
+		solver.calculateStatistics();
+		
+		List<Segment> path = solver.getPath();
+		int pathLength = solver.getPathLength();
+		
+		System.out.println(solver.toString());
+		
+	}
 
 	
 }
