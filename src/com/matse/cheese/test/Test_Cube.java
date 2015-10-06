@@ -40,11 +40,11 @@ public class Test_Cube {
 				for (int z = 0; z < 3; z++) {
 					// Test if the first segment is valid and is on top
 					assertEquals(SegmentType.CHEESE, segments[x][y][z].getType());
-					assertFalse("Käsesegment wurde als Startsegment gefunden",
+					assertFalse("Kï¿½sesegment wurde als Startsegment gefunden",
 							cube.isValidStartSegment(segments[x][y][z]));
 
 					segments[x][y][z].setType(SegmentType.AIR);
-					assertEquals("Käsesegment gefunden", SegmentType.AIR, segments[x][y][z].getType());
+					assertEquals("Kï¿½sesegment gefunden", SegmentType.AIR, segments[x][y][z].getType());
 					assertEquals("Kein Startsegment gefunden", z == 0, cube.isValidStartSegment(segments[x][y][z]));
 
 					assertEquals("Kein Endsegment gefunden", z == 2,
@@ -71,11 +71,11 @@ public class Test_Cube {
 		RecursiveSolver solver = new RecursiveSolver(kaese);
 
 		assertTrue("Kein Weg gefunden", solver.solve());
-		assertEquals("Die Länge stimmt nicht", 3, solver.getPathLength());
+		assertEquals("Die Lï¿½nge stimmt nicht", 3, solver.getPathLength());
 
 		List<Segment> erwarteterWeg = Arrays.asList(segments[1][1][0], segments[1][1][1], segments[1][1][2]);
-		List<Segment> weg = solver.searchPath(-1);
-		assertEquals("Die Länge stimmt nicht überein", erwarteterWeg.size(), weg.size());
+		List<Segment> weg = solver.getPath();
+		assertEquals("Die Lï¿½nge stimmt nicht ï¿½berein", erwarteterWeg.size(), weg.size());
 		assertTrue("Falscher Weg", compareList(erwarteterWeg, weg));
 		
 		assertTrue("Kein Strat- oder Endsegment gefunden", solver.isSolvable());
