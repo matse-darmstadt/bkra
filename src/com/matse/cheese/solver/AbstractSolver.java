@@ -51,9 +51,11 @@ public abstract class AbstractSolver {
 	
 	public List<Double> timeToSolve;
 	
-	public Long runningTime;
+	public long runningTime;
 	
 	public HashMap<String, Double> statistics;
+	
+	public int repetition;
 	
 	public AbstractSolver(Cube cube) {
 		this.cube = cube;
@@ -161,18 +163,16 @@ public abstract class AbstractSolver {
 		Double stdDeviation = 0.0;
 		Double average = 0.0;
 		Double sum = 0.0;
-		Double testSize = 0.0;
 		for (Double time : timeToSolve) {
 			sum += time;
-			testSize++;
 		}
-		average = sum / testSize;
-		
+		average = sum / repetition;
+		statistics.put("Mittelwert", average);
 		Double varianz = 0.0;
 		for (Double time : timeToSolve) {
 			varianz += Math.pow(time-average, 2);
 		}
-		varianz = varianz / testSize;
+		varianz = varianz / repetition;
 		statistics.put("Varianz", varianz);
 		
 		stdDeviation = Math.sqrt(varianz);

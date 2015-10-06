@@ -1,5 +1,6 @@
 package com.matse.cheese.solver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.matse.cheese.bean.Cube;
@@ -40,20 +41,26 @@ public class RecursiveSolver extends AbstractSolver {
 				pathFound = solve(segment);
 		}
 		
-		this.runningTime = System.currentTimeMillis() - this.runningTime;
+		this.runningTime = (System.currentTimeMillis() - this.runningTime)*1000;
 		
 		return !this.path.isEmpty();
 	}
 	
 	public boolean solve(Segment start) {
 		
-		Long solvingTime = System.currentTimeMillis();
+		List<Segment> currList = new ArrayList<Segment>();
+		long solvingTime = System.currentTimeMillis();
 		
-		if (cube.isValidStartSegment(start))
-			solveIt(start, this.path);
+		if (cube.isValidStartSegment(start)) {
+			for (int i = 0 ; i < this.repetition ; i++) {
+				solveIt(start, currList);				
+			}
+			this.path = currList;
+		}
 		
 		solvingTime = System.currentTimeMillis() - solvingTime;
-		this.timeToSolve.add(new Double(solvingTime));
+		if (pathFound)
+			this.timeToSolve.add(new Double(solvingTime));
 		return pathFound;
 	}
 	
@@ -114,9 +121,16 @@ public class RecursiveSolver extends AbstractSolver {
 		}
 		buffer.append("END\n");
 		buffer.append("The length of the path is: " + this.getPathLength() + "\n");
-		buffer.append("and was found in " + this.runningTime + " milliseconds\n");
+		buffer.append("and was found in " + this.runningTime + " microseconds\n");
 		buffer.append("\n");
 		buffer.append("Some more statistics (ms): \n");
+		
+		counter = 1;
+		for (Double time : this.timeToSolve) {
+			buffer.append("Laufzeit für Durchgang " + counter + ": " + time.doubleValue() + "\n");
+			counter++;
+		}
+		buffer.append("\n");
 		for (String text : statistics.keySet()) {
 			buffer.append(text + ": " + statistics.get(text) + "\n");
 		}
@@ -131,12 +145,12 @@ public class RecursiveSolver extends AbstractSolver {
 		Cube testCube = new Cube(cubeSize);
 		RecursiveSolver solver = new RecursiveSolver(testCube);
 		
-		int performanceRepetition = 1000;
-		solver.statistics.put("Repetition", new Double(performanceRepetition));
+		solver.repetition = 100;
+		solver.statistics.put("Repetition", new Double(solver.repetition));
 		
-		for (int i = 0 ; i <= performanceRepetition ; i++) {
-			boolean solved = solver.solve();
-		}
+		
+		boolean solved = solver.solve();
+
 		
 		solver.calculateStatistics();
 		
